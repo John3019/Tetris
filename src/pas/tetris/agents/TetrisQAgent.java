@@ -144,7 +144,7 @@ public class TetrisQAgent
         int cols = Board.NUM_COLS;
     
         for (int i = 0; i < cols; i++) {
-            for (int j = 0; j < rows; j++) {
+            for (int j = 2; j < rows; j++) {
                 if (originalImage.isCoordinateOccupied(i, j)) {
                     int height = rows - j;
                     Max_Height = Math.max(Max_Height, height);
@@ -165,7 +165,7 @@ public class TetrisQAgent
 
         // Calculate column heights
         for (int col = 0; col < cols; col++) {
-            for (int row = 0; row < rows; row++) {
+            for (int row = 2; row < rows; row++) {
                 if (originalImage.isCoordinateOccupied(col, row)) {
                     columnHeights[col] = rows - row;
                     break;
@@ -189,7 +189,7 @@ public class TetrisQAgent
 
         for (int col = 0; col < cols; col++) {
             boolean blockFound = false;
-            for (int row = 0; row < rows; row++) {
+            for (int row = 2; row < rows; row++) {
                 if (originalImage.isCoordinateOccupied(col, row)) {
                     blockFound = true; // Found a block
                 } else if (blockFound) {
@@ -208,7 +208,7 @@ public class TetrisQAgent
         int cols = originalImage.NUM_COLS;
         int linesCleared = 0;
 
-        for (int row = 0; row < rows; row++) {
+        for (int row = 2; row < rows; row++) {
             boolean rowFilled = true;
             for (int col = 0; col < cols; col++) {
                 if (!originalImage.isCoordinateOccupied(col, row)) {
